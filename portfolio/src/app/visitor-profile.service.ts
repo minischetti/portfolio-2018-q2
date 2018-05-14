@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Subject, Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,8 +7,12 @@ import { Injectable } from '@angular/core';
 export class VisitorProfileService {
 
   private newUser = true;
-  private visitorName: string;
+  // private visitorName: string;
   private currentCommand: string;
+
+  visitorName = new Subject<string>();
+  // visitorName = this.visitorNameSource.asObservable();
+
 
   constructor() { }
 
@@ -19,12 +24,16 @@ export class VisitorProfileService {
     this.newUser = userStatus;
   }
 
-  getVisitorName() {
-    return this.visitorName;
-  }
+  // getVisitorName(): Observable<string> {
+  //   return of(this.visitorName);
+  // }
+
+  // getVisitorName() {
+  //   return this.visitorName;
+  // }
 
   setVisitorName(name: string) {
-    this.visitorName = name;
+    this.visitorName.next(name);
   }
 
   getCurrentCommand() {

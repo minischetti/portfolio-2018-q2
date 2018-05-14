@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DirectorComponent } from './director/director.component';
 import { SearchComponent } from './search/search.component';
 import { VisitorNameComponent } from './visitor-name/visitor-name.component';
+import { VisitorProfileService } from './visitor-profile.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { VisitorNameComponent } from './visitor-name/visitor-name.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [VisitorProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

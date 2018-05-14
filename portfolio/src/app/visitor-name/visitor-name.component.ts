@@ -1,11 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
 
 @Component({
   selector: 'app-visitor-name',
   templateUrl: './visitor-name.component.html',
-  styleUrls: ['./visitor-name.component.css'],
-  providers: [VisitorProfileService]
+  styleUrls: ['./visitor-name.component.css']
 })
 export class VisitorNameComponent implements OnInit {
   visitorName: string;
@@ -14,11 +13,11 @@ export class VisitorNameComponent implements OnInit {
   }
 
   getVisitorName(): void {
-    this.visitorName = this.visitorProfileService.getVisitorName();
+    this.visitorProfileService.visitorName
+      .subscribe(name => this.visitorName = name);
   }
 
   ngOnInit() {
     this.getVisitorName();
   }
-
 }

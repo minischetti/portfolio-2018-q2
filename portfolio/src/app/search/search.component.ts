@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { VisitorProfileService } from '../visitor-profile.service';
 export class SearchComponent implements OnInit {
   constructor(private visitorProfileService: VisitorProfileService) { }
 
+  newUser: boolean;
   value = '';
-  @Input() newUser: boolean;
 
   onEnter(value: string) {
     if (this.newUser) {

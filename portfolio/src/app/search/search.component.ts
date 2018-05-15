@@ -14,14 +14,29 @@ export class SearchComponent implements OnInit {
   value = '';
 
   onEnter(value: string) {
-    if (this.newUser) {
-      this.visitorProfileService.setVisitorName(value);
-      this.visitorProfileService.setUserStatus(false);
-    } else {
-      this.value = value;
-    }
+    value = this.cleanResponse(value);
     this.getUserStatus();
-    this.directorComponent.getLine(value);
+    if (value) {
+      if (this.newUser) {
+        this.setVisitorName(value);
+        this.setUserStatus(false);
+      } else {
+        this.value = value;
+        this.directorComponent.getLine(value);
+      }
+    }
+  }
+
+  cleanResponse(value: string) {
+    return value.trim();
+  }
+
+  setVisitorName(name: string) {
+    this.visitorProfileService.setVisitorName(name);
+  }
+
+  setUserStatus(status: boolean) {
+    this.visitorProfileService.setUserStatus(status);
   }
 
   getUserStatus() {

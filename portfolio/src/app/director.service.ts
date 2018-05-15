@@ -15,10 +15,6 @@ export class DirectorService {
   constructor() { }
 
   setLine(command: string): void {
-
-  }
-
-  getLine(command: string): void {
     this.directorLines.forEach((line: any) => {
       if (line.state === command) {
         this.line.next(line);

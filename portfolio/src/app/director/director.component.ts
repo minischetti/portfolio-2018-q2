@@ -9,6 +9,8 @@ import { VisitorProfileService } from '../visitor-profile.service';
 })
 export class DirectorComponent implements OnInit {
 
+  newUser: boolean;
+  visitorName: string;
   profileSelected: boolean;
 
   line: any;
@@ -18,8 +20,18 @@ export class DirectorComponent implements OnInit {
   constructor(private directorService: DirectorService, private visitorProfileService: VisitorProfileService) { }
 
   getLine(command: string) {
-    this.directorService.getLine(command);
+    this.directorService.setLine(command);
     this.title = this.line.title;
+  }
+
+  getUserStatus() {
+    this.visitorProfileService.newUser
+      .subscribe(status => this.newUser = status);
+  }
+
+  getVisitorName(): void {
+    this.visitorProfileService.visitorName
+      .subscribe(name => this.visitorName = name);
   }
 
   getProfileStatus(): void {
@@ -28,7 +40,9 @@ export class DirectorComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getUserStatus();
     this.getProfileStatus();
+    this.getVisitorName();
     this.line = this.directorService.line
       .subscribe(line => this.line = line);
   }

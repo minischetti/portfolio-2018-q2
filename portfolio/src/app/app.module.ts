@@ -9,6 +9,7 @@ import { VisitorProfileService } from './visitor-profile.service';
 import { ProfileComponent } from './profile/profile.component';
 import { NameInputComponent } from './name-input/name-input.component';
 import { DebugComponent } from './debug/debug.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DebugComponent } from './debug/debug.component';
     VisitorNameComponent,
     ProfileComponent,
     NameInputComponent,
-    DebugComponent
+    DebugComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule

@@ -3,11 +3,11 @@ import { PROFILE } from '../mock-profile';
 import { VisitorProfileService } from '../visitor-profile.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-content',
+  templateUrl: './content.component.html',
+  styleUrls: ['./content.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ContentComponent implements OnInit {
 
   profile = PROFILE[0];
   newUser: boolean;
@@ -18,10 +18,6 @@ export class ProfileComponent implements OnInit {
   getUserStatus() {
     this.visitorProfileService.newUser
       .subscribe(status => this.newUser = status);
-  }
-
-  setProfileStatus(profileStatus: boolean) {
-    this.visitorProfileService.setProfileStatus(profileStatus);
   }
 
   getProfileStatus() {

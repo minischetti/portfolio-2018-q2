@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject, Observable, of} from 'rxjs';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +7,9 @@ import {Subject, Observable, of} from 'rxjs';
 export class VisitorProfileService {
 
   private newUser = true;
-  // private visitorName: string;
   private currentCommand: string;
 
   visitorName = new Subject<string>();
-  // visitorName = this.visitorNameSource.asObservable();
-
 
   constructor() { }
 

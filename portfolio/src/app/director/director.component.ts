@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DirectorService } from '../director.service';
 
 @Component({
   selector: 'app-director',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectorComponent implements OnInit {
 
-  constructor() { }
+  line: any;
+  title: string;
+  helper: string;
+
+  constructor(private directorService: DirectorService) { }
+
+  getLine(command: string) {
+    this.directorService.getLine(command);
+    this.title = this.line.title;
+  }
 
   ngOnInit() {
+    this.line = this.directorService.line
+      .subscribe(line => this.line = line);
+    this.getLine('name');
   }
 
 }

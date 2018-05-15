@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
+import { DirectorComponent } from '../director/director.component';
 
 @Component({
   selector: 'app-search',
@@ -7,7 +8,7 @@ import { VisitorProfileService } from '../visitor-profile.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  constructor(private visitorProfileService: VisitorProfileService) { }
+  constructor(private visitorProfileService: VisitorProfileService, private directorComponent: DirectorComponent) { }
 
   newUser: boolean;
   value = '';
@@ -20,6 +21,7 @@ export class SearchComponent implements OnInit {
       this.value = value;
     }
     this.getUserStatus();
+    this.directorComponent.getLine(value);
   }
 
   getUserStatus() {

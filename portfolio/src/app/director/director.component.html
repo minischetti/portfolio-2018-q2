@@ -1,4 +1,6 @@
-<div *ngIf="profileSelected">
+<div>
   <div class="title">{{title}}</div>
-  <app-search></app-search>
+  <div *ngIf="profileSelected">
+    <app-search></app-search>
+  </div>
 </div>

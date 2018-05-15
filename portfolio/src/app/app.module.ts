@@ -7,6 +7,8 @@ import { SearchComponent } from './search/search.component';
 import { VisitorNameComponent } from './visitor-name/visitor-name.component';
 import { VisitorProfileService } from './visitor-profile.service';
 import { ProfileComponent } from './profile/profile.component';
+import { NameInputComponent } from './name-input/name-input.component';
+import { DebugComponent } from './debug/debug.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { ProfileComponent } from './profile/profile.component';
     DirectorComponent,
     SearchComponent,
     VisitorNameComponent,
-    ProfileComponent
+    ProfileComponent,
+    NameInputComponent,
+    DebugComponent
   ],
   imports: [
     BrowserModule

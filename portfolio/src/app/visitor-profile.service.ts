@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {Subject, BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,8 @@ export class VisitorProfileService {
   // private profileSelected = false;
   private currentCommand: string;
 
-  newUser = new Subject<boolean>();
-  profileSelected = new Subject<boolean>();
+  newUser = new BehaviorSubject<boolean>(true);
+  profileSelected = new BehaviorSubject<boolean>(false);
   visitorName = new Subject<string>();
 
   constructor() { }

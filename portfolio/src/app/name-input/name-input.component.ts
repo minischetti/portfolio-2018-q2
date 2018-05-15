@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
-import { DirectorComponent } from '../director/director.component';
+
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  selector: 'app-name-input',
+  templateUrl: './name-input.component.html',
+  styleUrls: ['./name-input.component.css']
 })
-export class SearchComponent implements OnInit {
-  constructor(private visitorProfileService: VisitorProfileService, private directorComponent: DirectorComponent) { }
+export class NameInputComponent implements OnInit {
+
+  constructor(private visitorProfileService: VisitorProfileService) { }
 
   newUser: boolean;
-  value = '';
 
   onEnter(value: string) {
     value = this.cleanResponse(value);
@@ -19,9 +19,6 @@ export class SearchComponent implements OnInit {
       if (this.newUser) {
         this.setVisitorName(value);
         this.setUserStatus(false);
-      } else {
-        this.value = value;
-        this.directorComponent.getLine(value);
       }
     }
   }
@@ -44,6 +41,8 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    // this.setUserStatus(this.newUser);
     this.getUserStatus();
   }
+
 }

@@ -1,3 +1,11 @@
+.name-input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+
 input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -8,4 +16,5 @@ input {
   padding: 20px;
   color: white;
   font-size: 24px;
+  margin-left: 20px;
 }

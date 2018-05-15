@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
 
   profile = PROFILE[0];
   newUser: boolean;
-  profileSelected = false;
+  profileSelected: boolean;
 
   constructor(private visitorProfileService: VisitorProfileService) { }
 

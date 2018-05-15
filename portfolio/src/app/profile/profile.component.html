@@ -1,4 +1,6 @@
-<div class="profile-container">
+<h1>New User: {{newUser}}</h1>
+<h1>Profile Selected: {{profileSelected}}</h1>
+<div *ngIf="!newUser && !profileSelected" class="profile-container" (click)="setProfileStatus(true)">
   <div class="profile-left">
     <img src="profile.image"/>
     <div>{{profile.name}}</div>

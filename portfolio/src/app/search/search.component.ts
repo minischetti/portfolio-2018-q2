@@ -10,12 +10,11 @@ import { DirectorComponent } from '../director/director.component';
 export class SearchComponent implements OnInit {
   constructor(private visitorProfileService: VisitorProfileService, private directorComponent: DirectorComponent) { }
 
-  newUser: boolean;
+  newUser = true;
   value = '';
 
   onEnter(value: string) {
     value = this.cleanResponse(value);
-    this.getUserStatus();
     if (value) {
       if (this.newUser) {
         this.setVisitorName(value);
@@ -40,10 +39,16 @@ export class SearchComponent implements OnInit {
   }
 
   getUserStatus() {
-    this.newUser = this.visitorProfileService.getUserStatus();
+    this.visitorProfileService.newUser
+      .subscribe(status => this.newUser = status);
+  }
+
+  setProfileStatus(status: boolean) {
+    this.visitorProfileService.setProfileStatus(status);
   }
 
   ngOnInit() {
+    this.setUserStatus(this.newUser);
     this.getUserStatus();
   }
 }

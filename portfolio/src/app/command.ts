@@ -1,4 +1,4 @@
 export class Command {
-  command: string;
-  response: string;
+  name: string;
+  description: string;
 }

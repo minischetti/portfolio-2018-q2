@@ -1,6 +1,8 @@
 <div>
   <div *ngIf="!newUser && !profileSelected">
-    <div class="title">Welcome, {{visitorName}}. Please select a profile.</div>
+    <div class="director-container">
+      <div class="title">Welcome, {{visitorName}}. Please select a profile.</div>
+    </div>
   </div>
   <div *ngIf="profileSelected">
     <!--<div class="title">{{getLine("profile-selected")}}</div>-->

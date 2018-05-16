@@ -1,15 +1,5 @@
-<div>
-  <!--<div *ngIf="!newUser && !profileSelected">-->
-    <!--<div class="director-container">-->
-      <!--<div class="title">Welcome, {{visitorName}}. Please select a profile.</div>-->
-    <!--</div>-->
-  <!--</div>-->
-  <div>
-    <div class="director-container">
-      <!--<div class="title">{{line.title}}</div>-->
-      <!--<div class="title">Profile retrieved. Is there anything else I can do for you?</div>-->
-      <div class="helper">You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
-      <app-search></app-search>
-    </div>
-  </div>
+<div class="director-container">
+  <div class="title" *ngIf="line.title">{{line.title}}</div>
+  <div class="helper">You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
+  <app-search></app-search>
 </div>

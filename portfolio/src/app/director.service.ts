@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DIRECTOR } from './director-lines';
 import { Subject } from 'rxjs';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import { Location } from '@angular/common';
-import {ActivatedRoute} from '@angular/router';
 
 
 @Injectable({
@@ -15,11 +14,17 @@ export class DirectorService {
 
   line = new Subject();
 
-  constructor(private location: Location, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private location: Location, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.setLine(event.url);
+      }
+    });
+  }
 
-  setLine(): void {
+  setLine(url: string): void {
     this.directorLines.forEach((line: any) => {
-      if (line.path === '') {
+      if (line.path === url) {
         this.line.next(line);
       }
     });

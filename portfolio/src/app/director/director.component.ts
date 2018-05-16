@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
 import { VisitorProfileService } from '../visitor-profile.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-director',
@@ -14,14 +15,24 @@ export class DirectorComponent implements OnInit {
   profileSelected: boolean;
 
   line: any;
-  title: string;
+  // title: string;
   helper: string;
 
-  constructor(private directorService: DirectorService, private visitorProfileService: VisitorProfileService) { }
+  constructor(private location: Location, private directorService: DirectorService, private visitorProfileService: VisitorProfileService) { }
 
-  getLine(command: string) {
-    this.directorService.setLine(command);
-    this.title = this.line.title;
+  getLine() {
+    this.directorService.line
+      .subscribe(line => this.line = line);
+    // this.title = this.line.title;
+  }
+
+  getCurrentUrl() {
+    this.location
+      .subscribe(value => this.directorService.setLine());
+  }
+
+  setLine() {
+    this.directorService.setLine();
   }
 
   getUserStatus() {
@@ -43,8 +54,8 @@ export class DirectorComponent implements OnInit {
     this.getUserStatus();
     this.getProfileStatus();
     this.getVisitorName();
-    this.line = this.directorService.line
-      .subscribe(line => this.line = line);
+    this.getLine();
+    console.log(this.line);
   }
 
 }

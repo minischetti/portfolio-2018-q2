@@ -1,4 +1,4 @@
 export class Director {
-  state: string;
+  path: string;
   title: string;
 }

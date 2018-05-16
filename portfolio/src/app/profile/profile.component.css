@@ -10,6 +10,7 @@
   background-color: rgba(255,255,255,.1);
   text-transform: uppercase;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .profile-left {
@@ -17,6 +18,7 @@
   align-items: center;
   font-weight: bold;
 }
+
 .profile-right {
   display: flex;
   flex-direction: column;

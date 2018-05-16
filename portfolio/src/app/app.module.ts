@@ -18,17 +18,17 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 const appRoutes: Routes = [
   { path: '', component: NameInputComponent },
   { path: 'profile/choose', component: ProfileComponent },
-  { path: 'profile/dom', component: ProfilePageComponent }
+  { path: 'profile/dom', component: ProfilePageComponent },
   // {
-  //   path: 'heroes',
-  //   component: HeroListComponent,
-  //   data: { title: 'Heroes List' }
+  //   path: 'page',
+  //   component: Component,
+  //   data: { title: 'Page' }
   // },
   // { path: '',
-  //   redirectTo: '/heroes',
+  //   redirectTo: '/page',
   //   pathMatch: 'full'
   // },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', redirectTo: '', component: NameInputComponent }
 ];
 
 @NgModule({
@@ -47,10 +47,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true }
-    )
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [VisitorProfileService],
   bootstrap: [AppComponent]

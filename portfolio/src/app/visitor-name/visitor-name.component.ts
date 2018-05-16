@@ -7,6 +7,7 @@ import { VisitorProfileService } from '../visitor-profile.service';
   styleUrls: ['./visitor-name.component.css']
 })
 export class VisitorNameComponent implements OnInit {
+
   visitorName: string;
 
   constructor(private visitorProfileService: VisitorProfileService) {
@@ -20,4 +21,5 @@ export class VisitorNameComponent implements OnInit {
   ngOnInit() {
     this.getVisitorName();
   }
+
 }

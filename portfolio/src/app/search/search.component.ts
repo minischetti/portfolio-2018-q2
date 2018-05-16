@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorComponent } from '../director/director.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,14 +7,15 @@ import { DirectorComponent } from '../director/director.component';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  constructor( private directorComponent: DirectorComponent) { }
+  constructor(private router: Router) { }
 
   value = '';
 
   onEnter(value: string) {
     value = value.trim();
     this.value = value;
-    this.directorComponent.getLine(value);
+    this.router.navigateByUrl(this.value);
+
   }
 
   ngOnInit() {

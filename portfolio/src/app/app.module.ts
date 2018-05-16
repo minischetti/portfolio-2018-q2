@@ -14,21 +14,25 @@ import { ContentComponent } from './content/content.component';
 import { CommandListComponent } from './command-list/command-list.component';
 import { SelectedProfileComponent } from './selected-profile/selected-profile.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
+  // Home
   { path: '', component: NameInputComponent },
+
+  // Profile
   { path: 'profile/choose', component: ProfileComponent },
   { path: 'profile/dom', component: ProfilePageComponent },
-  // {
-  //   path: 'page',
-  //   component: Component,
-  //   data: { title: 'Page' }
-  // },
-  // { path: '',
-  //   redirectTo: '/page',
-  //   pathMatch: 'full'
-  // },
-  { path: '**', redirectTo: '', component: NameInputComponent }
+
+  // Help
+  { path: 'help', component: CommandListComponent },
+
+  // Error
+  { path: 'not-found', component: NotFoundComponent },
+
+  // Redirects
+  { path: 'experience', redirectTo: 'profile/dom' },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
@@ -43,7 +47,8 @@ const appRoutes: Routes = [
     ContentComponent,
     CommandListComponent,
     SelectedProfileComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,17 +10,16 @@ import { VisitorProfileService } from '../visitor-profile.service';
 })
 export class NameInputComponent implements OnInit {
 
-  constructor(private visitorProfileService: VisitorProfileService) { }
+  constructor(private router: Router, private visitorProfileService: VisitorProfileService) { }
 
   newUser: boolean;
 
   onEnter(value: string) {
     value = this.cleanResponse(value);
     if (value) {
-      if (this.newUser) {
-        this.setVisitorName(value);
-        this.setUserStatus(false);
-      }
+      this.setVisitorName(value);
+      this.setUserStatus(false);
+      this.router.navigateByUrl('profile/choose');
     }
   }
 
@@ -41,7 +41,6 @@ export class NameInputComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.setUserStatus(this.newUser);
     this.getUserStatus();
   }
 

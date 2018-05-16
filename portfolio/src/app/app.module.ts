@@ -12,11 +12,13 @@ import { NameInputComponent } from './name-input/name-input.component';
 import { DebugComponent } from './debug/debug.component';
 import { ContentComponent } from './content/content.component';
 import { CommandListComponent } from './command-list/command-list.component';
+import { SelectedProfileComponent } from './selected-profile/selected-profile.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const appRoutes: Routes = [
   { path: '', component: NameInputComponent },
   { path: 'profile/choose', component: ProfileComponent },
-  { path: 'profile/dominic', component: ContentComponent }
+  { path: 'profile/dom', component: ProfilePageComponent }
   // {
   //   path: 'heroes',
   //   component: HeroListComponent,
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
     NameInputComponent,
     DebugComponent,
     ContentComponent,
-    CommandListComponent
+    CommandListComponent,
+    SelectedProfileComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

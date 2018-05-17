@@ -1,5 +1,5 @@
 <div class="director-container" *ngIf="line.title">
   <div class="title">{{line.title}}</div>
   <div class="helper">You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
-  <app-search></app-search>
+  <app-search *ngIf="currentLocation != '/' || router.url != 'profile/choose'"></app-search>
 </div>

@@ -15,16 +15,12 @@ export class NameInputComponent implements OnInit {
   newUser: boolean;
 
   onEnter(value: string) {
-    value = this.cleanResponse(value);
+    value = value.trim();
     if (value) {
       this.setVisitorName(value);
       this.setUserStatus(false);
       this.router.navigateByUrl('profile/choose');
     }
-  }
-
-  cleanResponse(value: string) {
-    return value.trim();
   }
 
   setVisitorName(name: string) {

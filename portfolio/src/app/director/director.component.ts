@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
 import { VisitorProfileService } from '../visitor-profile.service';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
   selector: 'app-director',
@@ -14,6 +14,7 @@ export class DirectorComponent implements OnInit {
   newUser: boolean;
   visitorName: string;
   profileSelected: boolean;
+  currentLocation: string;
 
   line: any;
   // title: string;
@@ -44,11 +45,20 @@ export class DirectorComponent implements OnInit {
       .subscribe(status => this.profileSelected = status);
   }
 
+  getCurrentLocation() {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentLocation = event.url;
+      }
+    });
+  }
+
   ngOnInit() {
     this.getUserStatus();
     this.getProfileStatus();
     this.getVisitorName();
     this.getLine();
+    this.getCurrentLocation();
   }
 
 }

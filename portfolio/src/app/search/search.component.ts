@@ -13,9 +13,10 @@ export class SearchComponent implements OnInit {
 
   onEnter(value: string) {
     value = value.trim();
-    this.value = value;
-    this.router.navigateByUrl(this.value);
-
+    if (value) {
+      this.value = value;
+      this.router.navigateByUrl(this.value);
+    }
   }
 
   ngOnInit() {

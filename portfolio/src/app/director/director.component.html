@@ -1,5 +1,7 @@
-<div class="director-container" *ngIf="currentLocation !== '/' || line.title">
-  <div class="title">{{line.title}}</div>
-  <div class="helper">You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
-  <app-search *ngIf="currentLocation !== '/profile/choose'"></app-search>
+<div class="director-container">
+  <div class="title" *ngIf="line.title" @titleAnimation>{{line.title}}</div>
+  <div class="helper" *ngIf="line.title" @titleAnimation>You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
 </div>
+
+
+<!--*ngIf="currentLocation !== '/' || line.title"-->

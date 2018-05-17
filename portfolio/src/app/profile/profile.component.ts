@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PROFILE } from '../mock-profile';
 import { VisitorProfileService } from '../visitor-profile.service';
 
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

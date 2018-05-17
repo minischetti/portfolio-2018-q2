@@ -1,1 +1,1 @@
-<input #searchBox (keyup.enter)="onEnter(searchBox.value)">
+<input #searchBox (keyup.enter)="onEnter(searchBox.value)" placeholder="What would you like to do?" *ngIf="isSearchDisplayed">

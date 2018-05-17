@@ -13,4 +13,10 @@ input {
   left: 50%;
   width: 25%;
   transform: translate(-50%, -50%);
+  transition: .25s box-shadow;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 0 5px rgba(255,255,255,.1);
 }

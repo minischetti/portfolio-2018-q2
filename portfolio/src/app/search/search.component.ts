@@ -10,8 +10,7 @@ export class SearchComponent implements OnInit {
   constructor(private router: Router) { }
 
   value = '';
-  // currentLocation: string;
-  // isSearchDisplayed: boolean;
+  isSearchDisplayed: boolean;
 
   onEnter(value: string) {
     value = value.trim();
@@ -24,7 +23,6 @@ export class SearchComponent implements OnInit {
   getCurrentLocation() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // this.currentLocation = event.url;
         this.displaySearch(event.url);
       }
     });

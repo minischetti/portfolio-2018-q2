@@ -11,7 +11,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   styleUrls: ['./director.component.css'],
   animations: [
     trigger('titleAnimation', [
-      state('void', style({ opacity: 0, })),
+      state('void', style({ opacity: 0, transform: 'translateY(-25%)' })),
+      state('*', style({ opacity: 1, })),
+      transition(':enter, :leave', animate(500))
+    ]),
+    trigger('helperAnimation', [
+      state('void', style({ opacity: 0 })),
       state('*', style({ opacity: 1, })),
       transition(':enter, :leave', animate(500))
     ])

@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'not-found', component: NotFoundComponent },
 
   // Redirects
+  { path: 'profile', redirectTo: 'profile/dom' },
   { path: 'experience', redirectTo: 'profile/dom' },
   { path: '**', redirectTo: 'not-found' }
 ];

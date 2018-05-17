@@ -13,4 +13,6 @@
 .helper {
   font-size: 14px;
   color: rgba(255,255,255,.5);
+  line-height: 28px;
+  min-height: 28px;
 }

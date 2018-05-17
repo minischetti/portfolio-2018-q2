@@ -25,12 +25,12 @@ export class DirectorComponent implements OnInit {
               private directorService: DirectorService,
               private visitorProfileService: VisitorProfileService) { }
 
-  getLine() {
+  getLine(): void {
     this.directorService.line
       .subscribe(line => this.line = line);
   }
 
-  getUserStatus() {
+  getUserStatus(): void {
     this.visitorProfileService.newUser
       .subscribe(status => this.newUser = status);
   }
@@ -45,7 +45,7 @@ export class DirectorComponent implements OnInit {
       .subscribe(status => this.profileSelected = status);
   }
 
-  getCurrentLocation() {
+  getCurrentLocation(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentLocation = event.url;

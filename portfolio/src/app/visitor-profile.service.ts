@@ -6,8 +6,6 @@ import {Subject, BehaviorSubject} from 'rxjs';
 })
 export class VisitorProfileService {
 
-  private currentCommand: string;
-
   newUser = new BehaviorSubject<boolean>(true);
   profileSelected = new BehaviorSubject<boolean>(false);
   visitorName = new Subject<string>();
@@ -24,16 +22,6 @@ export class VisitorProfileService {
 
   setVisitorName(name: string) {
     this.visitorName.next(name);
-  }
-
-  // OLD
-
-  getCurrentCommand() {
-    return this.currentCommand;
-  }
-
-  setCurrentCommand(command: string) {
-    this.currentCommand = command;
   }
 
 }

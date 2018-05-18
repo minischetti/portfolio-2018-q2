@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
-import { NavigationEnd, Router } from '@angular/router';
-// import { THESAURUS } from '../thesaurus';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -9,9 +8,10 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  constructor(private searchService: SearchService, private router: Router) { }
+  constructor(private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   value = '';
+  currentRoute: ActivatedRoute;
   isSearchDisplayed: boolean;
 
   onEnter(value: string) {
@@ -27,25 +27,21 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  getCurrentLocation() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.displaySearch(event.url);
-      }
-    });
+  getCurrentLocation(): string {
+    return this.currentRoute.routeConfig.path;
   }
 
-  displaySearch(currentUrl: string): void {
-    const homeUrl = '/';
-    const chooseProfileUrl = '/profile/choose';
-    if (currentUrl === homeUrl || currentUrl === chooseProfileUrl) {
-      this.isSearchDisplayed = false;
-    } else {
-      this.isSearchDisplayed = true;
-    }
+  displaySearch(): void {
+    this.isSearchDisplayed = this.currentRoute.routeConfig.data.displaySearch;
   }
 
   ngOnInit() {
-    this.getCurrentLocation();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = this.activatedRoute.firstChild;
+        this.getCurrentLocation();
+        this.displaySearch();
+      }
+    });
   }
 }

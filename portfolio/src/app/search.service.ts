@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {Route, Router} from '@angular/router';
 import { ThesaurusService } from './thesaurus.service';
 
 @Injectable({
@@ -9,20 +9,37 @@ export class SearchService {
 
   constructor(private router: Router, private thesaurusService: ThesaurusService) { }
 
-  matchRoute(value: string): string {
+  extractWordsFromString(string: string): string[] {
+    return string.split(' ');
+  }
+
+  cleanWords(words: string[]) {
+    const cleanedWords: string[] = new Array<string>();
+    words.forEach(word => {
+      word = word.replace(/[^A-Za-z]/g, '');
+      cleanedWords.push(word);
+    });
+    return cleanedWords;
+  }
+
+  matchRoute(string: string): string {
     const routes = this.router.config;
-    const words = value.split(' ');
-    for (let i = 0; i < words.length; i++) {
-      const cleanedWord = words[i].replace(/[^A-Za-z0-9]/g, '');
-      for (let k = 0; k < routes.length; k++) {
-        if (!routes[k].data.excludeFromSearch) {
-          if ((routes[k].path).includes(cleanedWord)) {
-            return routes[k].path;
-          } else {
-            return this.thesaurusService.findSynonyms(cleanedWord);
+    const words = this.extractWordsFromString(string);
+    const cleanedWords = this.cleanWords(words);
+    let matchedRoute: string;
+    routes.forEach(route => {
+      const routePath = route.path;
+      cleanedWords.forEach(word => {
+        if (routePath.includes(word)) {
+          matchedRoute = routePath;
+        } else {
+          const synonym = this.thesaurusService.findSynonyms(word);
+          if (synonym) {
+            matchedRoute = synonym;
           }
         }
-      }
-    }
+      });
+    });
+    return matchedRoute;
   }
 }

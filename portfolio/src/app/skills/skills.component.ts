@@ -32,15 +32,16 @@ export class SkillsComponent implements OnInit {
     'Freemarker',
     'JavaScript (ES6)',
     'Angular',
-    'TypeScript',
     'React',
+    'TypeScript',
     'Webpack',
     'Java',
     'Automation Testing',
     'JIRA',
     'Fisheye + Crucible',
     'Adobe Photoshop',
-    'Sketch'
+    'Sketch',
+    'Agile'
   ]
   constructor() { }
 

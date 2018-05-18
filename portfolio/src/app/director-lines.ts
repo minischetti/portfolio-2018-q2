@@ -13,6 +13,10 @@ export const DIRECTOR: Director[] = [
     title: 'Profile retrieved. Is there anything else I can do for you?',
     helper: 'You can say things like experience, skills, or help.'
   },
+  { path: '/profile/dom/skills',
+    title: 'Here are the skills and technologies Dominic is proficient in.',
+    helper: ''
+  },
   { path: '/help',
     title: 'Here\'s everything you can ask me.',
     helper: 'You can ask in the form of full questions or use the keywords below.'

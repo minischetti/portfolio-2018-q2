@@ -27,7 +27,7 @@ export class DirectorComponent implements OnInit {
   visitorName: string;
   currentLocation: string;
 
-  line: any;
+  line: any = '';
 
   constructor(private router: Router,
               private location: Location,

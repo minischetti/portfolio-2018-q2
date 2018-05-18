@@ -19,6 +19,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { SearchService } from './search.service';
 import { ThesaurusService } from './thesaurus.service';
 import { SkillsComponent } from './skills/skills.component';
+import { Title } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,12 @@ import { SkillsComponent } from './skills/skills.component';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [VisitorProfileService, SearchService, ThesaurusService],
+  providers: [
+    VisitorProfileService,
+    SearchService,
+    ThesaurusService,
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

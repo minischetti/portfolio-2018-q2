@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 import { PROFILE } from '../mock-profile';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-selected-profile',

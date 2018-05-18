@@ -15,7 +15,7 @@ export const DIRECTOR: Director[] = [
   },
   { path: '/help',
     title: 'Here\'s everything you can ask me.',
-    helper: 'You can ask in form of full questions or use the keywords below.'
+    helper: 'You can ask in the form of full questions or use the keywords below.'
   },
   { path: '/not-found',
     title: 'I\'m sorry, but I don\'t recognize that command.',

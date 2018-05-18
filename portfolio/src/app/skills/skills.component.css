@@ -1,0 +1,16 @@
+.skills-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+.skill {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  background-color: rgba(255,255,255,.1);
+  border-radius: 200px;
+}

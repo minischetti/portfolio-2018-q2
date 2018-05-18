@@ -18,6 +18,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SearchService } from './search.service';
 import { ThesaurusService } from './thesaurus.service';
+import { SkillsComponent } from './skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ThesaurusService } from './thesaurus.service';
     CommandListComponent,
     SelectedProfileComponent,
     ProfilePageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

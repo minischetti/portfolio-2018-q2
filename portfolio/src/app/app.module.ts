@@ -9,7 +9,6 @@ import { VisitorNameComponent } from './visitor-name/visitor-name.component';
 import { VisitorProfileService } from './visitor-profile.service';
 import { ProfileComponent } from './profile/profile.component';
 import { NameInputComponent } from './name-input/name-input.component';
-import { DebugComponent } from './debug/debug.component';
 import { ContentComponent } from './content/content.component';
 import { CommandListComponent } from './command-list/command-list.component';
 import { SelectedProfileComponent } from './selected-profile/selected-profile.component';
@@ -29,7 +28,6 @@ import { Title } from '@angular/platform-browser';
     VisitorNameComponent,
     ProfileComponent,
     NameInputComponent,
-    DebugComponent,
     ContentComponent,
     CommandListComponent,
     SelectedProfileComponent,

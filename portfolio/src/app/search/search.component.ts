@@ -17,7 +17,6 @@ export class SearchComponent implements OnInit {
     if (value) {
       this.value = value;
       const matchedRoute = this.matchRoute(value);
-      // console.log(matchedRoute);
       if (matchedRoute) {
         this.router.navigateByUrl(matchedRoute);
       } else {
@@ -29,15 +28,14 @@ export class SearchComponent implements OnInit {
   matchRoute(value: string): string {
     const routes = this.router.config;
     const words = value.split(' ');
-    // words.forEach(word => {
-    //   word.replace(/[^A-Za-z]/g, '');
-    // });
     for (let i = 0; i < words.length; i++) {
       const cleanedWord = words[i].replace(/[^A-Za-z0-9]/g, '')
       for (let k = 0; k < routes.length; k++) {
-        if ((routes[k].path).includes(cleanedWord)) {
-          // console.log(`Word: ${words[i]} Route: ${routes[k].path}`);
-          return routes[k].path;
+        if (!routes[k].data.excludeFromSearch) {
+          if ((routes[k].path).includes(cleanedWord)) {
+            // console.log(`Word: ${words[i]} Route: ${routes[k].path}`);
+            return routes[k].path;
+          }
         }
       }
     }

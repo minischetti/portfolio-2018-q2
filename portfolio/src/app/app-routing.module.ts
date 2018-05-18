@@ -16,7 +16,7 @@ const routes: Routes = [
 
   { path: 'profile/dom/skills', component: SkillsComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: true } },
 
-  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: true } },
+  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: false } },
 
   { path: 'not-found', component: NotFoundComponent, data: { excludeFromSearch: true, displaySearch: true, displayProfile: false } },
 

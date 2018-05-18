@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { THESAURUS } from '../thesaurus';
+import {COMMANDS} from '../mock-commands';
 
 @Component({
   selector: 'app-search',
@@ -9,6 +11,7 @@ import {NavigationEnd, Router} from '@angular/router';
 export class SearchComponent implements OnInit {
   constructor(private router: Router) { }
 
+  thesaurus = THESAURUS;
   value = '';
   isSearchDisplayed: boolean;
 
@@ -35,6 +38,12 @@ export class SearchComponent implements OnInit {
           if ((routes[k].path).includes(cleanedWord)) {
             // console.log(`Word: ${words[i]} Route: ${routes[k].path}`);
             return routes[k].path;
+          } else {
+            for (let l = 0; l < this.thesaurus.length; l++) {
+              if (this.thesaurus[i].synonyms.includes(cleanedWord)) {
+                return this.thesaurus[i].route;
+              }
+            }
           }
         }
       }

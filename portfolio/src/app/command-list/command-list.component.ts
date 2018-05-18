@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Command } from '../command';
 import { COMMANDS } from '../mock-commands';
 
 @Component({

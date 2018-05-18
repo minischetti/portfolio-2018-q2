@@ -8,22 +8,20 @@ import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [
   // Home
-  { path: '', component: NameInputComponent, data: { excludeFromSearch: true } },
+  { path: '', component: NameInputComponent, data: { excludeFromSearch: true, displaySearch: false } },
 
   // Profile
-  { path: 'profile/choose', component: ProfileComponent, data: { excludeFromSearch: true } },
-  { path: 'profile/dom', component: ProfilePageComponent, data: { excludeFromSearch: false } },
+  { path: 'profile/choose', component: ProfileComponent, data: { excludeFromSearch: true, displaySearch: false } },
+  { path: 'profile/dom', component: ProfilePageComponent, data: { excludeFromSearch: false, displaySearch: true } },
 
   // Help
-  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false } },
+  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false, displaySearch: true } },
 
   // Error
-  { path: 'not-found', component: NotFoundComponent, data: { excludeFromSearch: true } },
+  { path: 'not-found', component: NotFoundComponent, data: { excludeFromSearch: true, displaySearch: true } },
 
-  // Redirects
-  { path: 'profile', redirectTo: 'profile/dom', data: { excludeFromSearch: true } },
-  { path: 'experience', redirectTo: 'profile/dom', data: { excludeFromSearch: true } },
-  { path: '**', redirectTo: 'not-found', data: { excludeFromSearch: true } }
+  // Wildcard
+  { path: '**', redirectTo: 'not-found', data: { excludeFromSearch: true, displaySearch: true } }
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { THESAURUS } from '../thesaurus';
-import {COMMANDS} from '../mock-commands';
+// import { THESAURUS } from '../thesaurus';
 
 @Component({
   selector: 'app-search',
@@ -9,9 +9,8 @@ import {COMMANDS} from '../mock-commands';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  constructor(private router: Router) { }
+  constructor(private searchService: SearchService, private router: Router) { }
 
-  thesaurus = THESAURUS;
   value = '';
   isSearchDisplayed: boolean;
 
@@ -19,33 +18,11 @@ export class SearchComponent implements OnInit {
     value = value.trim();
     if (value) {
       this.value = value;
-      const matchedRoute = this.matchRoute(value);
+      const matchedRoute = this.searchService.matchRoute(value);
       if (matchedRoute) {
         this.router.navigateByUrl(matchedRoute);
       } else {
         this.router.navigateByUrl(value);
-      }
-    }
-  }
-
-  matchRoute(value: string): string {
-    const routes = this.router.config;
-    const words = value.split(' ');
-    for (let i = 0; i < words.length; i++) {
-      const cleanedWord = words[i].replace(/[^A-Za-z0-9]/g, '')
-      for (let k = 0; k < routes.length; k++) {
-        if (!routes[k].data.excludeFromSearch) {
-          if ((routes[k].path).includes(cleanedWord)) {
-            // console.log(`Word: ${words[i]} Route: ${routes[k].path}`);
-            return routes[k].path;
-          } else {
-            for (let l = 0; l < this.thesaurus.length; l++) {
-              if (this.thesaurus[i].synonyms.includes(cleanedWord)) {
-                return this.thesaurus[i].route;
-              }
-            }
-          }
-        }
       }
     }
   }

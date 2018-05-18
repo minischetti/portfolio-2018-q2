@@ -16,6 +16,8 @@ import { SelectedProfileComponent } from './selected-profile/selected-profile.co
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SearchService } from './search.service';
+import { ThesaurusService } from './thesaurus.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,7 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserAnimationsModule,
     AppRoutingModule
   ],
-  providers: [VisitorProfileService],
+  providers: [VisitorProfileService, SearchService, ThesaurusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

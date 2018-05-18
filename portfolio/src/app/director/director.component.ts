@@ -24,14 +24,10 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class DirectorComponent implements OnInit {
 
-  newUser: boolean;
   visitorName: string;
-  profileSelected: boolean;
   currentLocation: string;
 
   line: any;
-  // title: string;
-  // helper: string;
 
   constructor(private router: Router,
               private location: Location,
@@ -43,19 +39,9 @@ export class DirectorComponent implements OnInit {
       .subscribe(line => this.line = line);
   }
 
-  getUserStatus(): void {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
-  }
-
   getVisitorName(): void {
     this.visitorProfileService.visitorName
       .subscribe(name => this.visitorName = name);
-  }
-
-  getProfileStatus(): void {
-    this.visitorProfileService.profileSelected
-      .subscribe(status => this.profileSelected = status);
   }
 
   getCurrentLocation(): void {
@@ -67,8 +53,6 @@ export class DirectorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getUserStatus();
-    this.getProfileStatus();
     this.getVisitorName();
     this.getLine();
     this.getCurrentLocation();

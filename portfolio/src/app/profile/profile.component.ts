@@ -19,28 +19,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class ProfileComponent implements OnInit {
 
   profile = PROFILE[0];
-  newUser: boolean;
-  profileSelected: boolean;
 
-  constructor(private visitorProfileService: VisitorProfileService) { }
+  constructor() { }
 
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
-  }
-
-  setProfileStatus(profileStatus: boolean) {
-    this.visitorProfileService.setProfileStatus(profileStatus);
-  }
-
-  getProfileStatus() {
-    this.visitorProfileService.profileSelected
-      .subscribe(profileStatus => this.profileSelected = profileStatus);
-  }
-
-  ngOnInit() {
-    this.getUserStatus();
-    this.getProfileStatus();
-  }
+  ngOnInit() { }
 
 }

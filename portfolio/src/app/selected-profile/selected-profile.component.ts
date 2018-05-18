@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VisitorProfileService } from '../visitor-profile.service';
 import { PROFILE } from '../mock-profile';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-selected-profile',
@@ -23,24 +23,27 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class SelectedProfileComponent implements OnInit {
 
   profile = PROFILE[0];
-  newUser: boolean;
-  profileSelected: boolean;
+  currentRoute: ActivatedRoute;
+  isProfileDisplayed: boolean;
 
-  constructor(private visitorProfileService: VisitorProfileService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
+  getCurrentLocation(): string {
+    return this.currentRoute.routeConfig.path;
   }
 
-  getProfileStatus() {
-    this.visitorProfileService.profileSelected
-      .subscribe(profileStatus => this.profileSelected = profileStatus);
+  displayProfile(): void {
+    this.isProfileDisplayed = this.currentRoute.routeConfig.data.displayProfile;
   }
 
   ngOnInit() {
-    this.getUserStatus();
-    this.getProfileStatus();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = this.activatedRoute.firstChild;
+        this.getCurrentLocation();
+        this.displayProfile();
+      }
+    });
   }
 
 }

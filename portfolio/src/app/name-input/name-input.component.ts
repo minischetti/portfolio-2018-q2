@@ -12,13 +12,10 @@ export class NameInputComponent implements OnInit {
 
   constructor(private router: Router, private visitorProfileService: VisitorProfileService) { }
 
-  newUser: boolean;
-
   onEnter(value: string) {
     value = value.trim();
     if (value) {
       this.setVisitorName(value);
-      this.setUserStatus(false);
       this.router.navigateByUrl('profile/choose');
     }
   }
@@ -27,17 +24,6 @@ export class NameInputComponent implements OnInit {
     this.visitorProfileService.setVisitorName(name);
   }
 
-  setUserStatus(status: boolean) {
-    this.visitorProfileService.setUserStatus(status);
-  }
-
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
-  }
-
-  ngOnInit() {
-    this.getUserStatus();
-  }
+  ngOnInit() { }
 
 }

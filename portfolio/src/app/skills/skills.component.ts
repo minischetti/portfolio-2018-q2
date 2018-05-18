@@ -43,9 +43,9 @@ export class SkillsComponent implements OnInit {
     'Sketch',
     'Agile'
   ]
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

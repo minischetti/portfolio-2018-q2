@@ -8,19 +8,19 @@ import {ProfileComponent} from './profile/profile.component';
 import {SkillsComponent} from './skills/skills.component';
 
 const routes: Routes = [
-  { path: '', component: NameInputComponent, data: { excludeFromSearch: true, displaySearch: false } },
+  { path: '', component: NameInputComponent, data: { excludeFromSearch: true, displaySearch: false, displayProfile: false } },
 
-  { path: 'profile/choose', component: ProfileComponent, data: { excludeFromSearch: true, displaySearch: false } },
+  { path: 'profile/choose', component: ProfileComponent, data: { excludeFromSearch: true, displaySearch: false, displayProfile: false } },
 
-  { path: 'profile/dom', component: ProfilePageComponent, data: { excludeFromSearch: false, displaySearch: true } },
+  { path: 'profile/dom', component: ProfilePageComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: true } },
 
-  { path: 'profile/dom/skills', component: SkillsComponent, data: { excludeFromSearch: false, displaySearch: true } },
+  { path: 'profile/dom/skills', component: SkillsComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: true } },
 
-  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false, displaySearch: true } },
+  { path: 'help', component: CommandListComponent, data: { excludeFromSearch: false, displaySearch: true, displayProfile: true } },
 
-  { path: 'not-found', component: NotFoundComponent, data: { excludeFromSearch: true, displaySearch: true } },
+  { path: 'not-found', component: NotFoundComponent, data: { excludeFromSearch: true, displaySearch: true, displayProfile: false } },
 
-  { path: '**', redirectTo: 'not-found', data: { excludeFromSearch: true, displaySearch: true } }
+  { path: '**', redirectTo: 'not-found', data: { excludeFromSearch: true, displaySearch: true, displayProfile: false } }
 ];
 
 @NgModule({

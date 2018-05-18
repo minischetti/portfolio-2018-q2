@@ -76,12 +76,7 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'not-found',
-    data: {
-      excludeFromSearch: true,
-      displaySearch: true,
-      displayProfile: false
-    }
+    redirectTo: 'not-found'
   }
 ];
 

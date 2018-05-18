@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
 import { VisitorProfileService } from '../visitor-profile.service';
 import { Location } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -24,38 +24,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class DirectorComponent implements OnInit {
 
-  visitorName: string;
-  currentLocation: string;
-
   line: any = '';
 
   constructor(private router: Router,
               private location: Location,
-              private directorService: DirectorService,
-              private visitorProfileService: VisitorProfileService) { }
+              private directorService: DirectorService) { }
 
   getLine(): void {
     this.directorService.line
       .subscribe(line => this.line = line);
   }
 
-  getVisitorName(): void {
-    this.visitorProfileService.visitorName
-      .subscribe(name => this.visitorName = name);
-  }
-
-  getCurrentLocation(): void {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.currentLocation = event.url;
-      }
-    });
-  }
-
   ngOnInit() {
-    this.getVisitorName();
     this.getLine();
-    this.getCurrentLocation();
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="profile-container">
-    <img class="profile-image" src="{{profile.image}}"/>
-    <div class="profile-info">
+    <img class="profile-image" src="{{profile.image}}" @imageAnimation/>
+    <div class="profile-info" @textAnimation>
       <div class="profile-name">{{profile.name}}</div>
       <div class="job-info">
         <div>{{profile.title}} at {{profile.company}}</div>

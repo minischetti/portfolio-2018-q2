@@ -16,3 +16,9 @@
   line-height: 28px;
   min-height: 28px;
 }
+
+@media(max-width: 640px) {
+  .director-container {
+    width: 90%;
+  }
+}

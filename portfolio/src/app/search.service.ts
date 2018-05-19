@@ -17,6 +17,7 @@ export class SearchService {
     const cleanedWords: string[] = new Array<string>();
     words.forEach(word => {
       word = word.replace(/[^A-Za-z]/g, '');
+      word = word.toLowerCase();
       cleanedWords.push(word);
     });
     return cleanedWords;

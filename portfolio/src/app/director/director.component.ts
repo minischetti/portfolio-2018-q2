@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
-import { VisitorProfileService } from '../visitor-profile.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';

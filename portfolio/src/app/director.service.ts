@@ -17,7 +17,11 @@ export class DirectorService {
   constructor(private location: Location, private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.setLine(event.url);
+        if (event.urlAfterRedirects === '/not-found') {
+          this.setLine('/not-found');
+        } else {
+          this.setLine(event.url);
+        }
       }
     });
   }

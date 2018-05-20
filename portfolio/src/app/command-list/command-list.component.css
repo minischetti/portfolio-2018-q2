@@ -12,6 +12,7 @@
 
 .command-name {
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .command-description {

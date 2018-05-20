@@ -59,7 +59,7 @@ const routes: Routes = [
       title: 'Help',
       excludeFromSearch: false,
       displaySearch: true,
-      displayProfile: false
+      displayProfile: true
     }
   },
 
@@ -70,7 +70,7 @@ const routes: Routes = [
       title: 'Page Not Found',
       excludeFromSearch: true,
       displaySearch: true,
-      displayProfile: false
+      displayProfile: true
     }
   },
 

@@ -16,3 +16,27 @@
 .profile-info {
   margin-left: 10px;
 }
+
+.profile-name {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.job-info {
+  color: rgba(255,255,255,.5);
+}
+
+@media (max-width: 1024px) {
+  .profile-container {
+    position: unset;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .profile-info {
+    margin: 10px 0 0;
+    text-align: center;
+  }
+}

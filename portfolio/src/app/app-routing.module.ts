@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import {ProfilePageComponent} from './profile-page/profile-page.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CommandListComponent} from './command-list/command-list.component';
 import {NameInputComponent} from './name-input/name-input.component';
 import {ProfileComponent} from './profile/profile.component';
 import {SkillsComponent} from './skills/skills.component';
+import {ContentComponent} from './content/content.component';
 
 const routes: Routes = [
   {
@@ -32,7 +32,7 @@ const routes: Routes = [
 
   {
     path: 'profile/dom',
-    component: ProfilePageComponent,
+    component: ContentComponent,
     data: {
       title: 'Profile',
       excludeFromSearch: false,

@@ -12,7 +12,6 @@ import { NameInputComponent } from './name-input/name-input.component';
 import { ContentComponent } from './content/content.component';
 import { CommandListComponent } from './command-list/command-list.component';
 import { SelectedProfileComponent } from './selected-profile/selected-profile.component';
-import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SearchService } from './search.service';
@@ -31,7 +30,6 @@ import { Title } from '@angular/platform-browser';
     ContentComponent,
     CommandListComponent,
     SelectedProfileComponent,
-    ProfilePageComponent,
     NotFoundComponent,
     SkillsComponent
   ],

@@ -20,3 +20,9 @@
     width: 90%;
   }
 }
+
+@media (max-width: 480px), (orientation: landscape) {
+  .skill {
+    font-size: 12px;
+  }
+}

@@ -1,10 +1,13 @@
 <div class="profile-container" routerLink="/profile/dom" @animation>
-  <div class="profile-left">
-    <img class="profile-image" src="{{profile.image}}"/>
+  <img class="profile-image" src="{{profile.image}}"/>
+  <div class="profile-info">
     <div class="profile-name">{{profile.name}}</div>
-  </div>
-  <div class="profile-right">
-    <div>{{profile.title}}</div>
-    <div>{{profile.company}}</div>
+    <div class="profile-job desktop">
+      <div>{{profile.title}}</div>
+      <div>{{profile.company}}</div>
+    </div>
+    <div class="profile-job mobile">
+      <div>{{profile.title}} at {{profile.company}}</div>
+    </div>
   </div>
 </div>

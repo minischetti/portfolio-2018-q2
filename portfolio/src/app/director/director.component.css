@@ -21,5 +21,25 @@
 @media(max-width: 1024px) {
   .director-container {
     width: 90%;
+    top: 20%;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .helper {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media(max-width: 320px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .helper {
+    font-size: 12px;
   }
 }

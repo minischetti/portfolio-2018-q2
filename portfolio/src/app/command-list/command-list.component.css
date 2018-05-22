@@ -18,3 +18,24 @@
 .command-description {
   color: rgba(255,255,255,.5)
 }
+
+@media (max-width: 1024px) {
+  .command-list {
+    width: 90%;
+  }
+}
+
+@media (max-width: 320px) {
+  .command-list {
+    width: 90%;
+    font-size: 12px;
+  }
+}
+
+@media (orientation: landscape) {
+  .command-list {
+    height: 30%;
+    overflow: scroll;
+    font-size: 12px;
+  }
+}

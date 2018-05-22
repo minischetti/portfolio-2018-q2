@@ -14,8 +14,8 @@ export class SearchComponent implements OnInit {
   currentRoute: ActivatedRoute;
   isSearchDisplayed: boolean;
 
-  onEnter(value: string) {
-    value = value.trim();
+  onEnter(element: HTMLInputElement) {
+    const value = element.value.trim();
     if (value) {
       this.value = value;
       const matchedRoute = this.searchService.matchRoute(value);
@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
       } else {
         this.router.navigateByUrl(value);
       }
+      element.blur();
     }
   }
 

@@ -7,3 +7,9 @@
   font-size: 72px;
   margin: 0;
 }
+
+@media (max-width: 480px), (orientation: landscape) {
+  .content {
+    font-size: 48px;
+  }
+}

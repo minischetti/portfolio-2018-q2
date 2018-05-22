@@ -18,6 +18,7 @@ import { SearchService } from './search.service';
 import { ThesaurusService } from './thesaurus.service';
 import { SkillsComponent } from './skills/skills.component';
 import { Title } from '@angular/platform-browser';
+import {StringReplacePipe} from './string-replace.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { Title } from '@angular/platform-browser';
     CommandListComponent,
     SelectedProfileComponent,
     NotFoundComponent,
-    SkillsComponent
+    SkillsComponent,
+    StringReplacePipe
   ],
   imports: [
     BrowserModule,

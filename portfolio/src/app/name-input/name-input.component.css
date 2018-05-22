@@ -1,9 +1,13 @@
 .name-input {
   position: absolute;
+  display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 input {
@@ -19,7 +23,7 @@ input {
   font-weight: 300;
   transition: .25s box-shadow;
   outline: none;
-  margin-left: 20px;
+  margin-top: 10px;
 }
 
 input:focus {
@@ -33,6 +37,5 @@ input:focus {
 
   input {
     display: block;
-    margin: 10px 0 0;
   }
 }

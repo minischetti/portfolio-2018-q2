@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
+import { VisitorProfileService } from '../visitor-profile.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
@@ -24,17 +25,25 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class DirectorComponent implements OnInit {
 
   line: any = '';
+  visitorName = '';
 
   constructor(private router: Router,
               private location: Location,
-              private directorService: DirectorService) { }
+              private directorService: DirectorService,
+              private visitorProfileService: VisitorProfileService) { }
 
   getLine(): void {
     this.directorService.line
       .subscribe(line => this.line = line);
   }
 
+  getVisitorName(): void {
+    this.visitorProfileService.visitorName
+      .subscribe(name => this.visitorName = name);
+  }
+
   ngOnInit() {
+    this.getVisitorName();
     this.getLine();
   }
 

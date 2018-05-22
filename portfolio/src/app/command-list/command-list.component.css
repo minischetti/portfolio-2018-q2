@@ -32,7 +32,7 @@
   }
 }
 
-@media (orientation: landscape) {
+@media (max-width: 1024px) and (orientation: landscape) {
   .command-list {
     height: 30%;
     overflow: scroll;

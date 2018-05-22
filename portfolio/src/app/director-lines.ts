@@ -6,7 +6,7 @@ export const DIRECTOR: Director[] = [
     helper: ''
   },
   { path: '/profile/choose',
-    title: 'Welcome. Please select a profile.',
+    title: 'Welcome{visitorName}. Please select a profile.',
     helper: ''
   },
   { path: '/profile/dom',

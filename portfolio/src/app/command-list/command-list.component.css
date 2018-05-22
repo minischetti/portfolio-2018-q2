@@ -19,7 +19,7 @@
   color: rgba(255,255,255,.5)
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 820px) {
   .command-list {
     width: 90%;
   }
@@ -32,7 +32,7 @@
   }
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
+@media (max-width: 820px) and (orientation: landscape) {
   .command-list {
     height: 30%;
     overflow: scroll;

@@ -1,26 +1,39 @@
 .director-container {
   position: absolute;
-  top: 25%;
   left: 50%;
+  width: 90%;
   transform: translate(-50%, -50%);
   text-align: center;
 }
 
 .title {
-  font-size: 24px;
+  font-size: 1.67vw;
   font-weight: 300;
 }
 
 .helper {
-  font-size: 14px;
   color: rgba(255,255,255,.5);
-  line-height: 28px;
-  min-height: 28px;
+  font-weight: 300;
+}
+
+@media(min-width: 1024px) {
+  .director-container {
+    top: 25%;
+  }
+
+  .title {
+    font-size: 1.53vw;
+  }
+
+  .helper {
+    font-size: 0.97vw;
+    line-height: 1.94vw;
+    min-height: 1.94vw;
+  }
 }
 
 @media(max-width: 1024px) {
   .director-container {
-    width: 90%;
     top: 20%;
   }
 

@@ -1,4 +1,4 @@
 <div class="name-input">
-  <span>Hello, What should I call you?</span>
-  <input #nameInput (keyup.enter)="onEnter(nameInput.value)">
+  <span class="title" @titleAnimation>Hello, what should I call you?</span>
+  <input @inputAnimation #nameInput (keyup.enter)="onEnter(nameInput.value)">
 </div>

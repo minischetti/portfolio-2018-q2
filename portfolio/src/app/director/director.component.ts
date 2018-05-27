@@ -13,12 +13,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     trigger('titleAnimation', [
       state('void', style({ opacity: 0, transform: 'translateY(-25%)' })),
       state('*', style({ opacity: 1, })),
-      transition(':enter, :leave', animate(500))
+      transition(':enter, :leave', animate('1s ease-in-out'))
     ]),
     trigger('helperAnimation', [
       state('void', style({ opacity: 0 })),
       state('*', style({ opacity: 1, })),
-      transition(':enter, :leave', animate(500))
+      transition(':enter, :leave', animate('1s .5s ease-in-out'))
     ])
   ]
 })

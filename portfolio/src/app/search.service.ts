@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
-import { ThesaurusService } from './thesaurus.service';
+import { Router } from '@angular/router';
+import { CommandsService } from './commands.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  constructor(private router: Router, private thesaurusService: ThesaurusService) { }
+  constructor(private router: Router, private commandsService: CommandsService) { }
 
   extractWordsFromString(string: string): string[] {
     return string.split(' ');
@@ -34,7 +34,7 @@ export class SearchService {
         if (routePath.includes(word)) {
           matchedRoute = routePath;
         } else {
-          const synonym = this.thesaurusService.findSynonyms(word);
+          const synonym = this.commandsService.findSynonyms(word);
           if (synonym) {
             matchedRoute = synonym;
           }
@@ -42,5 +42,9 @@ export class SearchService {
       });
     });
     return matchedRoute;
+  }
+
+  visitExternalLink(url): void {
+    window.open(url, '_blank');
   }
 }

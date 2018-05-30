@@ -1,6 +1,10 @@
 <div class="command-list" [@animation]="commands.length">
-  <div *ngFor="let command of commands" class="command">
-    <div class="command-name">{{command.name}}</div>
-    <div class="command-description">{{command.description}}</div>
-  </div>
+  <ng-container *ngFor="let command of commands">
+    <ng-container *ngIf="command.description">
+      <div class="command" (click)="goToRoute(command.destination)">
+        <div class="command-name">{{command.name}}</div>
+        <div class="command-description">{{command.description}}</div>
+      </div>
+    </ng-container>
+  </ng-container>
 </div>

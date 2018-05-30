@@ -40,8 +40,8 @@ export class SearchComponent implements OnInit {
         this.state = 'stuck';
         this.setHelperText();
       } else if (matchedRoute) {
-        this.router.navigateByUrl(matchedRoute);
         this.state = 'success';
+        this.router.navigateByUrl(matchedRoute);
         element.blur();
       } else {
         this.state = 'error';

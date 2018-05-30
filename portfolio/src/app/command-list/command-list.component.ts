@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { COMMANDS } from '../mock-commands';
+import { COMMANDS } from '../commands';
 import { trigger, style, transition, animate, query, stagger } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-command-list',
@@ -28,8 +29,12 @@ export class CommandListComponent implements OnInit {
 
   commands = COMMANDS;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
+
+  goToRoute(route: string) {
+    this.router.navigateByUrl(route);
+  }
 
 }

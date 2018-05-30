@@ -11,10 +11,6 @@
   font-weight: 300;
 }
 
-.helper {
-  color: rgba(255,255,255,.5);
-  font-weight: 300;
-}
 
 @media(min-width: 1024px) {
   .director-container {
@@ -26,7 +22,6 @@
   }
 
   .helper {
-    font-size: 0.97vw;
     line-height: 1.94vw;
     min-height: 1.94vw;
   }
@@ -42,7 +37,6 @@
   }
 
   .helper {
-    font-size: 12px;
     line-height: 1.6;
   }
 }
@@ -50,9 +44,5 @@
 @media(max-width: 320px) {
   .title {
     font-size: 20px;
-  }
-
-  .helper {
-    font-size: 12px;
   }
 }

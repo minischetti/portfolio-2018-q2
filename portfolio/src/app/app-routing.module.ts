@@ -35,6 +35,7 @@ const routes: Routes = [
     component: ContentComponent,
     data: {
       title: 'Profile',
+      friendlyName: 'Dom\'s profile',
       excludeFromSearch: false,
       displaySearch: true,
       displayProfile: true
@@ -46,6 +47,7 @@ const routes: Routes = [
     component: SkillsComponent,
     data: {
       title: 'Skills',
+      friendlyName: 'Dom\'s skills',
       excludeFromSearch: false,
       displaySearch: true,
       displayProfile: true
@@ -57,6 +59,7 @@ const routes: Routes = [
     component: CommandListComponent,
     data: {
       title: 'Help',
+      friendlyName: 'the help page',
       excludeFromSearch: false,
       displaySearch: true,
       displayProfile: true

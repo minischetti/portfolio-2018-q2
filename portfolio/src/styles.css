@@ -25,9 +25,20 @@ input {
   border-color: rgba(255,255,255,.15);
   color: white;
   font-weight: 300;
-  transition: 0.25s box-shadow;
+  transition: 0.5s all ease-in-out;
   text-align: center;
   outline: none;
+}
+
+input:focus {
+  background-color: rgba(255,255,255,.1);
+  border-color: transparent;
+}
+
+.helper {
+  color: rgba(255,255,255,.5);
+  font-weight: 300;
+  text-align: center;
 }
 
 @media(min-width: 1024px) {
@@ -39,8 +50,8 @@ input {
     margin-top: 1.125vw;
   }
 
-  input:focus {
-    box-shadow: 0 0 0 .26vw rgba(255,255,255,.15);
+  .helper {
+    font-size: 0.97vw;
   }
 }
 
@@ -53,8 +64,8 @@ input {
     margin-top: 10px;
   }
 
-  input:focus {
-    box-shadow: 0 0 0 5px rgba(255,255,255,.15);
+  .helper {
+    font-size: 12px;
   }
 }
 

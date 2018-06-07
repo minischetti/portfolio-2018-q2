@@ -3,7 +3,7 @@ import {Command} from './command';
 export const COMMANDS: Command[] = [
   {
     name: 'profile',
-    synonyms: ['job', 'role', 'experience', 'position', 'company', 'work', 'dom'],
+    synonyms: ['job', 'role', 'experience', 'position', 'company', 'work', 'dom', 'profile'],
     description: 'Learn more about Dominic\'s role at Williams-Sonoma, Inc.',
     externalLink: false,
     destination: 'profile/dom'
@@ -25,7 +25,7 @@ export const COMMANDS: Command[] = [
     name: 'linkedin',
     description: 'View Dominic\'s LinkedIn profile.',
     externalLink: true,
-    destination: 'https://www.linkedin.com/domminischetti'
+    destination: 'https://www.linkedin.com/in/domminischetti'
   },
   {
     name: 'github',

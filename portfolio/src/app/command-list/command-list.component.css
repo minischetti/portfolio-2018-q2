@@ -12,6 +12,12 @@
   cursor: pointer;
 }
 
+a.command {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
 .command-name {
   text-transform: uppercase;
   font-weight: 600;

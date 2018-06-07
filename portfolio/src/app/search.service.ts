@@ -44,7 +44,15 @@ export class SearchService {
     return matchedRoute;
   }
 
-  visitExternalLink(url): void {
+  isExternalLink(query: string): void {
+    if (this.commandsService.isExternalLink(query)) {
+      const url = this.commandsService.getExternalLink(query);
+      this.visitExternalLink(url);
+      return true;
+    }
+  }
+
+  visitExternalLink(url: string): void {
     window.open(url, '_blank');
   }
 }

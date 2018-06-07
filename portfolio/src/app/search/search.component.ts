@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchService } from '../search.service';
 import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
-import {trigger, state, transition, style, animate, keyframes, stagger, query} from '@angular/animations';
+import {trigger, state, transition, style, animate, keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-search',
@@ -35,17 +35,21 @@ export class SearchComponent implements OnInit {
     const value = element.value.trim();
     if (value) {
       this.value = value;
-      const matchedRoute = this.searchService.matchRoute(value);
-      if (matchedRoute === this.getCurrentLocation()) {
-        this.state = 'stuck';
-        this.setHelperText();
-      } else if (matchedRoute) {
-        this.state = 'success';
-        this.router.navigateByUrl(matchedRoute);
-        element.blur();
+      if (this.searchService.isExternalLink(value)) {
+        this.searchService.visitExternalLink(value);
       } else {
-        this.state = 'error';
-        this.router.navigateByUrl(value);
+        const matchedRoute = this.searchService.matchRoute(value);
+        if (matchedRoute === this.getCurrentLocation()) {
+          this.state = 'stuck';
+          this.setHelperText();
+        } else if (matchedRoute) {
+          this.state = 'success';
+          this.router.navigateByUrl(matchedRoute);
+          element.blur();
+        } else {
+          this.state = 'error';
+          this.router.navigateByUrl(value);
+        }
       }
     }
   }

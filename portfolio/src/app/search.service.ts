@@ -44,7 +44,7 @@ export class SearchService {
     return matchedRoute;
   }
 
-  isExternalLink(query: string): void {
+  isExternalLink(query: string): boolean {
     if (this.commandsService.isExternalLink(query)) {
       const url = this.commandsService.getExternalLink(query);
       this.visitExternalLink(url);

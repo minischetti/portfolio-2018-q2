@@ -15,6 +15,7 @@ export class CommandsService {
       if (this.commands[i].synonyms.includes(word)) {
         return this.commands[i].destination;
       }
+      return;
     }
   }
 }

@@ -2,22 +2,22 @@ import {Command} from './command';
 
 export const COMMANDS: Command[] = [
   {
-    name: 'experience',
-    synonyms: ['job', 'role', 'experience', 'position', 'company', 'work', 'dom', 'profile'],
+    name: 'profile',
+    synonyms: ['job', 'role', 'experience', 'position', 'company', 'work', 'dom'],
     description: 'Learn more about Dominic\'s role at Williams-Sonoma, Inc.',
     externalLink: false,
     destination: 'profile/dom'
   },
   {
     name: 'skills',
-    synonyms: ['skills', 'technology', 'technologies'],
+    synonyms: ['technology', 'technologies'],
     description: 'Learn more about technologies Dominic is proficient in.',
     externalLink: false,
     destination: 'profile/dom/skills'
   },
   {
     name: 'help',
-    synonyms: ['help', 'commands'],
+    synonyms: ['commands'],
     externalLink: false,
     destination: 'help'
   },

@@ -8,6 +8,10 @@
 .command:not(:last-child) {
 }
 
+.command {
+  cursor: pointer;
+}
+
 .command-name {
   text-transform: uppercase;
   font-weight: 600;

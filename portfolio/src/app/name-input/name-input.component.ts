@@ -1,48 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { VisitorProfileService } from '../visitor-profile.service';
+import { Router } from '@angular/router';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 
 @Component({
   selector: 'app-name-input',
   templateUrl: './name-input.component.html',
-  styleUrls: ['./name-input.component.css']
+  styleUrls: ['./name-input.component.css'],
+  animations: [
+    trigger('titleAnimation', [
+      state('void', style({ opacity: 0, transform: 'translateY(-50%)' })),
+      state('*', style({ opacity: 1, })),
+      transition(':enter, :leave', animate('1s ease-in-out'))
+    ]),
+    trigger('inputAnimation', [
+      state('void', style({ transform: 'scaleX(0)' })),
+      state('*', style({ transform: 'scaleX(1)', })),
+      transition(':enter, :leave', animate('1s .5s ease-in-out'))
+    ])
+  ]
 })
 export class NameInputComponent implements OnInit {
 
-  constructor(private visitorProfileService: VisitorProfileService) { }
-
-  newUser: boolean;
+  constructor(private router: Router, private visitorProfileService: VisitorProfileService) { }
 
   onEnter(value: string) {
-    value = this.cleanResponse(value);
+    value = value.trim();
     if (value) {
-      if (this.newUser) {
-        this.setVisitorName(value);
-        this.setUserStatus(false);
-      }
+      this.setVisitorName(value);
+      this.router.navigateByUrl('profile/choose');
     }
-  }
-
-  cleanResponse(value: string) {
-    return value.trim();
   }
 
   setVisitorName(name: string) {
     this.visitorProfileService.setVisitorName(name);
   }
 
-  setUserStatus(status: boolean) {
-    this.visitorProfileService.setUserStatus(status);
-  }
-
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
-  }
-
-  ngOnInit() {
-    // this.setUserStatus(this.newUser);
-    this.getUserStatus();
-  }
+  ngOnInit() { }
 
 }

@@ -1,13 +1,4 @@
-<div>
-  <div *ngIf="!newUser && !profileSelected">
-    <div class="title">Welcome, {{visitorName}}. Please select a profile.</div>
-  </div>
-  <div *ngIf="profileSelected">
-    <!--<div class="title">{{getLine("profile-selected")}}</div>-->
-    <div class="director-container">
-      <div class="title">Profile retrieved. Is there anything else I can do for you?</div>
-      <div class="helper">You can say things like <i>experience</i>, <i>skills</i>, or <i>help</i>.</div>
-      <app-search></app-search>
-    </div>
-  </div>
+<div class="director-container">
+  <div class="title" *ngIf="line.title" @titleAnimation>{{ line.title | stringReplace:'{visitorName}':visitorName }} </div>
+  <div class="helper" @helperAnimation>{{line.helper}}</div>
 </div>

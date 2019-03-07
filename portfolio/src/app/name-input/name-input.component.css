@@ -1,20 +1,36 @@
 .name-input {
   position: absolute;
+  display: flex;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 24px;
+  justify-content: center;
+  flex-direction: column;
 }
 
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 2px;
-  padding: 20px;
-  color: white;
-  font-size: 24px;
-  margin-left: 20px;
+.title {
+  font-weight: 300;
+}
+
+@media(min-width: 1024px) {
+  .name-input {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .title {
+    font-size: 1.67vw;
+  }
+}
+
+@media(max-width: 1024px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .name-input {
+    width: 90%;
+    text-align: center;
+    font-size: 24px;
+  }
 }

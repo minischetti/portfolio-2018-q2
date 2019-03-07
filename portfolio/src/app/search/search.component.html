@@ -1,3 +1,4 @@
-<input #searchBox (keyup.enter)="onEnter(searchBox.value)">
-<!--<p>New User: {{newUser}}</p>-->
-<!--<p>{{value}}</p>-->
+<div class="search-container" *ngIf="isSearchDisplayed">
+  <div class="helper" *ngIf="state == 'stuck'" @helperAnimation>You're already viewing {{helperText}}. Please try another command.</div>
+  <input #searchBox (keyup.enter)="onEnter(searchBox)" placeholder="What are you looking for?" [@animation]="state">
+</div>

@@ -1,4 +1,7 @@
 export class Command {
-  command: string;
-  response: string;
+  name: string;
+  synonyms?: string[];
+  description?: string;
+  externalLink: boolean;
+  destination: string;
 }

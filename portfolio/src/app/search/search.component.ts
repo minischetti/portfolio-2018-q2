@@ -1,49 +1,78 @@
 import { Component, OnInit } from '@angular/core';
-import { VisitorProfileService } from '../visitor-profile.service';
-import { DirectorComponent } from '../director/director.component';
+import { SearchService } from '../search.service';
+import { NavigationEnd, Router, ActivatedRoute } from '@angular/router';
+import {trigger, state, transition, style, animate, keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  animations: [
+    trigger('helperAnimation', [
+      state('void', style({ opacity: 0, transform: 'translateY(50%)' })),
+      state('*', style({ opacity: 1, transform: 'translateY(0)' })),
+      transition(':enter, :leave', animate('1s ease-in-out'))
+    ]),
+    trigger('animation', [
+      transition('* => stuck', [
+        animate('1s ease-in-out', keyframes([
+          style({boxShadow: '0 0 0 0 rgba(255,0,0,.25)'}),
+          style({boxShadow: '0 0 0 20px transparent'})
+        ]))
+      ]),
+    ])],
 })
 export class SearchComponent implements OnInit {
-  constructor(private visitorProfileService: VisitorProfileService, private directorComponent: DirectorComponent) { }
+  constructor(private searchService: SearchService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  newUser: boolean;
   value = '';
+  currentRoute: ActivatedRoute;
+  isSearchDisplayed: boolean;
+  state: string;
+  helperText: string;
 
-  onEnter(value: string) {
-    value = this.cleanResponse(value);
+  onEnter(element: HTMLInputElement) {
+    const value = element.value.trim();
     if (value) {
-      if (this.newUser) {
-        this.setVisitorName(value);
-        this.setUserStatus(false);
+      this.value = value;
+      if (this.searchService.isExternalLink(value)) {
+        this.searchService.visitExternalLink(value);
       } else {
-        this.value = value;
-        this.directorComponent.getLine(value);
+        const matchedRoute = this.searchService.matchRoute(value);
+        if (matchedRoute === this.getCurrentLocation()) {
+          this.state = 'stuck';
+          this.setHelperText();
+        } else if (matchedRoute) {
+          this.state = 'success';
+          this.router.navigateByUrl(matchedRoute);
+          element.blur();
+        } else {
+          this.state = 'error';
+          this.router.navigateByUrl(value);
+        }
       }
     }
   }
 
-  cleanResponse(value: string) {
-    return value.trim();
+  getCurrentLocation(): string {
+    return this.currentRoute.routeConfig.path;
   }
 
-  setVisitorName(name: string) {
-    this.visitorProfileService.setVisitorName(name);
+  displaySearch(): void {
+    this.isSearchDisplayed = this.currentRoute.routeConfig.data.displaySearch;
   }
 
-  setUserStatus(status: boolean) {
-    this.visitorProfileService.setUserStatus(status);
-  }
-
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
+  setHelperText(): void {
+    this.helperText = this.currentRoute.routeConfig.data.friendlyName;
   }
 
   ngOnInit() {
-    this.getUserStatus();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = this.activatedRoute.firstChild;
+        this.getCurrentLocation();
+        this.displaySearch();
+      }
+    });
   }
 }

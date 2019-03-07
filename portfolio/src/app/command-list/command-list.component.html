@@ -1,0 +1,18 @@
+<div class="command-list" [@animation]="commands.length">
+  <ng-container *ngFor="let command of commands">
+    <ng-container *ngIf="command.description">
+      <ng-container *ngIf="command.externalLink">
+        <a class="command" href={{command.destination}} target="_blank">
+          <div class="command-name">{{command.name}}</div>
+          <div class="command-description">{{command.description}}</div>
+        </a>
+      </ng-container>
+      <ng-container *ngIf="!command.externalLink">
+        <div class="command" (click)="goToRoute(command.destination)">
+          <div class="command-name">{{command.name}}</div>
+          <div class="command-description">{{command.description}}</div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>

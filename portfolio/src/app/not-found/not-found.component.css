@@ -1,0 +1,26 @@
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+  .content {
+    font-size: 3.33vw;
+  }
+}

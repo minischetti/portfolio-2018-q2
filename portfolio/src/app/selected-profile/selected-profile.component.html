@@ -1,0 +1,9 @@
+<div class="profile-container" *ngIf="isProfileDisplayed" @containerAnimation>
+    <img class="profile-image" src="{{profile.image}}"/>
+    <div class="profile-info">
+      <div class="profile-name">{{profile.name}}</div>
+      <div class="job-info">
+        <div>{{profile.title}} at {{profile.company}}</div>
+      </div>
+    </div>
+</div>

@@ -1,32 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectorService } from '../director.service';
 import { VisitorProfileService } from '../visitor-profile.service';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-director',
   templateUrl: './director.component.html',
-  styleUrls: ['./director.component.css']
+  styleUrls: ['./director.component.css'],
+  animations: [
+    trigger('titleAnimation', [
+      state('void', style({ opacity: 0, transform: 'translateY(-25%)' })),
+      state('*', style({ opacity: 1, })),
+      transition(':enter, :leave', animate('1s ease-in-out'))
+    ]),
+    trigger('helperAnimation', [
+      state('void', style({ opacity: 0 })),
+      state('*', style({ opacity: 1, })),
+      transition(':enter, :leave', animate('1s .5s ease-in-out'))
+    ])
+  ]
 })
 export class DirectorComponent implements OnInit {
 
-  newUser: boolean;
-  visitorName: string;
-  profileSelected: boolean;
+  line: any = '';
+  visitorName = '';
 
-  line: any;
-  title: string;
-  helper: string;
+  constructor(private router: Router,
+              private location: Location,
+              private directorService: DirectorService,
+              private visitorProfileService: VisitorProfileService) { }
 
-  constructor(private directorService: DirectorService, private visitorProfileService: VisitorProfileService) { }
-
-  getLine(command: string) {
-    this.directorService.setLine(command);
-    this.title = this.line.title;
-  }
-
-  getUserStatus() {
-    this.visitorProfileService.newUser
-      .subscribe(status => this.newUser = status);
+  getLine(): void {
+    this.directorService.line
+      .subscribe(line => this.line = line);
   }
 
   getVisitorName(): void {
@@ -34,17 +42,9 @@ export class DirectorComponent implements OnInit {
       .subscribe(name => this.visitorName = name);
   }
 
-  getProfileStatus(): void {
-    this.visitorProfileService.profileSelected
-      .subscribe(status => this.profileSelected = status);
-  }
-
   ngOnInit() {
-    this.getUserStatus();
-    this.getProfileStatus();
     this.getVisitorName();
-    this.line = this.directorService.line
-      .subscribe(line => this.line = line);
+    this.getLine();
   }
 
 }
